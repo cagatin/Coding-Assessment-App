@@ -1,3 +1,10 @@
+:root {
+    --defaultFont: 'Montserrat', sans-serif;
+    --borderColor: #ffb703;
+    --correctColor: #81b29a;
+    --incorrectColor: #e63946;
+}
+
 * {
     margin: 2%;
     padding: 1%;
@@ -6,7 +13,7 @@
 body {
     background-color: #023047;
     color: white;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--defaultFont);
 }
 
 header {
@@ -20,8 +27,22 @@ header {
     margin-left: 2%;
 }
 
+#high-scores-container button {
+    font-family: var(--defaultFont);
+    outline: none;
+}
+
 #time-container {
     margin-right: 2%;
+}
+
+#result-container {
+    padding: 2%;
+    margin: 2%;
+    font-weight: bold;
+    text-align: center;
+    font-size: 200%;
+    color: var(--incorrectColor);
 }
 
 #main-container {
@@ -31,13 +52,5 @@ header {
     align-items: center;
     margin: 5%;
     font-size: 200%;
-    border: 2px solid #ffb703;
-}
-
-#result-container {
-    padding: 2%;
-    margin: 2%;
-    font-weight: bold;
-    text-align: center;
-    font-size: 200%;
+    border: 2px solid var(--borderColor);
 }
