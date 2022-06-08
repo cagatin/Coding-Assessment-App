@@ -22,3 +22,15 @@ header {
 #time-container {
     margin-right: 2%;
 }
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5%;
+    font-size: 200%;
+    border: 2px solid #ffb703;
+}
+
+#result-container {}
