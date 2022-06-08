@@ -6,6 +6,8 @@ let questionsContainer = document.querySelector('#question-container');
 
 let time;
 
+let currQuestionIndex;
+
 // Array containing question-answer pair objects.
 // questions.question --> returns text 
 // questions.answers[index] --> Array of len
@@ -30,7 +32,68 @@ let questions = [
                 answer: true
             }
         ]
-    }
+    },
+    {
+        question: "What is Mobile First design?",
+        answers: [
+            {
+                text: "Design principle where the smallest viewport is designed first, and breakpoints are created to accomodate larger viewports",
+                answer: true,
+            },
+            {
+                text: "Design principle where the largest viewport is designed first, and breakpoints are created to accomodate smalelr viewports",
+                answer: false,
+            }
+        ]
+    },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
+    // {
+    //     question: "",
+    //     answers: []
+    // },
 ]
 
 // Function to generate random index for selection in questions array.
@@ -56,10 +119,11 @@ function displayQuestion(index) {
 
 //Funciton that displays questions/answers onto the page
 function display() {
-    let randomIndex = randomNumber();
+    currQuestionIndex = randomNumber();
 
-    displayQuestion(randomIndex);
-    displayAnswers(randomIndex);
+    displayQuestion(currQuestionIndex);
+    displayAnswers(currQuestionIndex);
+    console.log(currQuestionIndex);
 }
 
 display();
