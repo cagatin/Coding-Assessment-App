@@ -33,11 +33,12 @@ let questions = [
     }
 ]
 
+// Function to generate random index for selection in questions array.
 function randomNumber() {
     return Math.floor(Math.random() * questions.length);
 }
 
-
+// Function to create answer buttons and display them onto the page
 function displayAnswers(index) {
     let answers = questions[index].answers;
     for (let i = 0; i < answers.length; i++) {
@@ -48,15 +49,17 @@ function displayAnswers(index) {
     }
 }
 
+// Funciton to display question onto the page
 function displayQuestion(index) {
     questionPara.textContent = questions[index].question;
 }
 
-function init() {
+//Funciton that displays questions/answers onto the page
+function display() {
     let randomIndex = randomNumber();
 
     displayQuestion(randomIndex);
     displayAnswers(randomIndex);
 }
 
-init();
+display();
