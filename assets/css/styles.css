@@ -2,3 +2,23 @@
     margin: 2%;
     padding: 1%;
 }
+
+body {
+    background-color: #023047;
+    color: white;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1%;
+}
+
+#high-scores-container {
+    margin-left: 2%;
+}
+
+#time-container {
+    margin-right: 2%;
+}

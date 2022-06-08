@@ -12,12 +12,9 @@
 
 <body>
     <!-- Header containing the high scores, result of the question, and time left -->
-    <header id="header-container">
+    <header>
         <div id="high-scores-container">
             <button class="hsButton">View High Scores</button>
-        </div>
-        <div id="result-container">
-            <span class="result">Placeholder</span>
         </div>
         <div id="time-container">
             <span class="time-left">Time Left:</span>
@@ -27,11 +24,19 @@
 
     <main>
         <div id="main-container">
+            <div id="result-container">
+                <span class="result">Placeholder Result</span>
+            </div>
             <div id="question-container">
                 <p id="question">Placeholder Question</p>
             </div>
             <div id="answers-container">
                 <!-- Dynamically create divs of possible answers here -->
+                <!-- REMOVE THESE DIVS ONCE JS IS RUNNING -->
+                <div class="answer-space">Possible Answer 1</div>
+                <div class="answer-space">Possible Answer 2</div>
+                <div class="answer-space">Possible Answer 3</div>
+                <div class="answer-space">Possible Answer 4</div>
             </div>
         </div>
     </main>
