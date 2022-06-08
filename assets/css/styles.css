@@ -71,4 +71,20 @@ header {
     padding: 1em;
     outline: none;
     border: 1px solid var(--borderColor);
+    transition: all 0.2s;
+}
+
+.answer-button:hover {
+    border-color: var(--borderColor);
+    border-width: 2px;
+    box-shadow: 0 1em 1em -1em var(--borderColor);
+    transform: translateY(-0.4em);
+}
+
+.correct {
+    background-color: #57cc99;
+}
+
+.incorrect {
+    background-color: var(--incorrectColor);
 }
