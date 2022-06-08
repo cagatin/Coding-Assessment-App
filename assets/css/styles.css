@@ -90,3 +90,7 @@ header {
     background-color: var(--incorrectColor);
     border-color: var(--incorrectColor);
 }
+
+.hidden {
+    display: none;
+}

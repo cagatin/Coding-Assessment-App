@@ -2,12 +2,13 @@
 let resultSpan = document.querySelector('#result');
 let questionPara = document.querySelector('#question');
 let answersContainer = document.querySelector('#answers-container');
+let questionsContainer = document.querySelector('#question-container');
 
 let time;
 
-// let answer = ["Possible Answer 1", "Possible Answer 2", "Possible Answer 3", "Possible Answer 4",]
-// let questions = ["Placeholder Question"]
-
+// Array containing question-answer pair objects.
+// questions.question --> returns text 
+// questions.answers[index] --> Array of len
 let questions = [
     {
         question: "What does the Array.slice() method do?",
@@ -32,9 +33,13 @@ let questions = [
     }
 ]
 
+function randomNumber() {
+    return Math.floor(Math.random() * questions.length);
+}
 
-function displayAnswers() {
-    let answers = questions[0].answers;
+
+function displayAnswers(index) {
+    let answers = questions[index].answers;
     for (let i = 0; i < answers.length; i++) {
         let newBtn = document.createElement('button');
         newBtn.setAttribute('class', 'answer-button');
@@ -43,13 +48,15 @@ function displayAnswers() {
     }
 }
 
-function displayQuestion() {
-    questionPara.textContent = questions[0].question;
+function displayQuestion(index) {
+    questionPara.textContent = questions[index].question;
 }
 
 function init() {
-    displayQuestion();
-    displayAnswers();
+    let randomIndex = randomNumber();
+
+    displayQuestion(randomIndex);
+    displayAnswers(randomIndex);
 }
 
 init();
