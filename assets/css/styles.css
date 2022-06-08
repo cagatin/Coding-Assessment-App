@@ -48,9 +48,27 @@ header {
 #main-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 5%;
+    padding: 5%;
     font-size: 200%;
     border: 2px solid var(--borderColor);
+}
+
+#question-container {
+    margin-bottom: 2%;
+}
+
+#answers-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.answer-button {
+    font-family: var(--defaultFont);
+    font-weight: bold;
+    font-size: 50%;
+    margin: 1% 0;
+    padding: 1em;
+    outline: none;
+    border: 1px solid var(--borderColor);
 }
