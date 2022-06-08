@@ -1,7 +1,7 @@
 :root {
     --defaultFont: 'Montserrat', sans-serif;
     --borderColor: #ffb703;
-    --correctColor: #81b29a;
+    --correctColor: #57cc99;
     --incorrectColor: #e63946;
 }
 
@@ -42,7 +42,7 @@ header {
     font-weight: bold;
     text-align: center;
     font-size: 200%;
-    color: var(--incorrectColor);
+    color: var(--correctColor);
 }
 
 #main-container {
@@ -55,7 +55,7 @@ header {
 }
 
 #question-container {
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 }
 
 #answers-container {
@@ -82,9 +82,11 @@ header {
 }
 
 .correct {
-    background-color: #57cc99;
+    background-color: var(--correctColor);
+    border-color: var(--correctColor);
 }
 
 .incorrect {
     background-color: var(--incorrectColor);
+    border-color: var(--incorrectColor);
 }
