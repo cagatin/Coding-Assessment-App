@@ -6,6 +6,7 @@
 body {
     background-color: #023047;
     color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header {
@@ -33,4 +34,10 @@ header {
     border: 2px solid #ffb703;
 }
 
-#result-container {}
+#result-container {
+    padding: 2%;
+    margin: 2%;
+    font-weight: bold;
+    text-align: center;
+    font-size: 200%;
+}
