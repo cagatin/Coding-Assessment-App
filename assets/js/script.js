@@ -97,7 +97,7 @@ let questions = [
         ]
     },
     {
-        question: "How are elements indexed within an",
+        question: "How are elements indexed within an array",
         answers: [
             {
                 text: "One Indexed",
