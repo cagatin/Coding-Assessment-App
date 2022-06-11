@@ -5,8 +5,9 @@ let answersContainer = document.querySelector('#answers-container');
 let questionsContainer = document.querySelector('#question-container');
 
 let time;
-
 let currQuestionIndex;
+let usedQuestions = [];
+
 
 // Array containing question-answer pair objects.
 // questions.question --> returns text 
@@ -177,18 +178,34 @@ function displayAnswers(index) {
     }
 }
 
-// Funciton to display question onto the page
+// Function to display question onto the page
 function displayQuestion(index) {
     questionPara.textContent = questions[index].question;
 }
 
+// Fucnction to determine if the user selected the correct answer
+function isCorrect(index) {
+    return questions[index].answers.answer;
+}
+
+
 //Funciton that displays questions/answers onto the page
 function display() {
+    // Randomly generate an index from the questions array.
     currQuestionIndex = randomNumber();
 
+    // If the question has already been used, select a new index.
+    if (usedQuestions.includes(currQuestionIndex)) {
+        currQuestionIndex = randomNumber();
+    }
+
+    // Display the questions and answers.
     displayQuestion(currQuestionIndex);
     displayAnswers(currQuestionIndex);
-    console.log(currQuestionIndex);
+
+    // Store the index into the usedQuestions array.
+    usedQuestions.push(currQuestionIndex);
 }
+
 
 display();
