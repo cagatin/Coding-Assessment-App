@@ -133,7 +133,7 @@ let questions = [
                 answer: false
             },
             {
-                text: "Via a hashman",
+                text: "Via a hash-map",
                 answer: false
             },
         ]
