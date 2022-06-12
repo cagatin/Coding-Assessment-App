@@ -3,8 +3,10 @@ let resultSpan = document.querySelector('#result');
 let questionPara = document.querySelector('#question');
 let answersContainer = document.querySelector('#answers-container');
 let questionsContainer = document.querySelector('#question-container');
+let answerBtn = document.querySelectorAll('.answer-button');
 
-let time;
+let time = 90;
+let currScore;
 let currQuestionIndex;
 let usedQuestions = [];
 
@@ -184,8 +186,8 @@ function displayQuestion(index) {
 }
 
 // Fucnction to determine if the user selected the correct answer
-function isCorrect(index) {
-    return questions[index].answers.answer;
+function isCorrect() {
+    return questions[currQuestionIndex].answers.answer;
 }
 
 
@@ -206,6 +208,8 @@ function display() {
     // Store the index into the usedQuestions array.
     usedQuestions.push(currQuestionIndex);
 }
+
+// Event Lister to determine if the user selected the correct answer
 
 
 display();
