@@ -101,7 +101,7 @@ let questions = [
         ]
     },
     {
-        question: "How are elements indexed within an",
+        question: "How are elements indexed within an array?",
         answers: [
             {
                 text: "One Indexed",
@@ -213,9 +213,23 @@ function display() {
 
     // Store the index into the usedQuestions array.
     usedQuestions.push(currQuestionIndex);
+
+    console.log(usedQuestions);
+    console.log(questions.length);
 }
 
+// function that clears the questions and answers from the main contianer
+function clearDisplay() {
+    questionPara.textContent = '';
+    while (answersContainer.firstChild) {
+        answersContainer.removeChild(answersContainer.firstChild);
+    }
+}
 
+// function which ends the game and displays high score
+function endGame() {
+
+}
 
 display();
 
@@ -233,6 +247,12 @@ answersContainer.addEventListener('click', (event) => {
             event.target.classList.add('incorrect');
             resultSpan.textContent = 'Incorrect';
             resultSpan.setAttribute('class', 'incorrect-text');
+        }
+        if (usedQuestions.length < questions.length) {
+            clearDisplay();
+            display();
+        } else {
+            endGame();
         }
     }
 });
