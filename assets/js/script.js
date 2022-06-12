@@ -170,7 +170,7 @@ function randomNumber() {
 }
 
 // Function to create answer buttons and display them onto the page
-function displayAnswers(index) {
+function displayAnswers() {
     let answers = questions[index].answers;
     for (let i = 0; i < answers.length; i++) {
         let newBtn = document.createElement('button');
