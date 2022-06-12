@@ -188,20 +188,6 @@ function displayAnswers(index) {
 
         //append the new button to the answers container
         answersContainer.appendChild(newBtn);
-
-        //event listener to determine if the user selected the correct answer.
-        newBtn.addEventListener('click', (event) => {
-            let isCorrect = event.target.classList.contains('true');
-            if (isCorrect) {
-                event.target.classList.add('correct');
-                resultSpan.textContent = 'Correct';
-                resultSpan.setAttribute('class', 'correct-text')
-            } else {
-                event.target.classList.add('incorrect');
-                resultSpan.textContent = 'Incorrect';
-                resultSpan.setAttribute('class', 'incorrect-text');
-            }
-        });
     }
 }
 
@@ -232,3 +218,21 @@ function display() {
 
 
 display();
+
+//event listener to determine if the user selected the correct answer.
+answersContainer.addEventListener('click', (event) => {
+    let element = event.target;
+
+    if (element.matches('button')) {
+        let isCorrect = event.target.classList.contains('true');
+        if (isCorrect) {
+            event.target.classList.add('correct');
+            resultSpan.textContent = 'Correct';
+            resultSpan.setAttribute('class', 'correct-text')
+        } else {
+            event.target.classList.add('incorrect');
+            resultSpan.textContent = 'Incorrect';
+            resultSpan.setAttribute('class', 'incorrect-text');
+        }
+    }
+});
