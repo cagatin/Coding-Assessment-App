@@ -170,24 +170,40 @@ function randomNumber() {
 }
 
 // Function to create answer buttons and display them onto the page
-function displayAnswers() {
+function displayAnswers(index) {
     let answers = questions[index].answers;
     for (let i = 0; i < answers.length; i++) {
+        //contains boolean describing whether answer is true/false
+        let answer = answers[i].answer;
+        console.log(answer);
+
+        //create a button element
         let newBtn = document.createElement('button');
-        newBtn.setAttribute('class', 'answer-button');
+
+        //sets its class attribute to answer-button, as well as the true/false boolean
+        newBtn.classList.add('answer-button', `${answer}`)
+
+        //set its text to equal the answer text.
         newBtn.textContent = answers[i].text;
+
+        //append the new button to the answers container
         answersContainer.appendChild(newBtn);
+
+        //event listener to determine if the user selected the correct answer.
+        newBtn.addEventListener('click', (event) => {
+            let isCorrect = event.target.classList.contains('true');
+            if (isCorrect) {
+                event.target.classList.add('correct');
+            } else {
+                event.target.classList.add('incorrect');
+            }
+        })
     }
 }
 
 // Function to display question onto the page
 function displayQuestion(index) {
     questionPara.textContent = questions[index].question;
-}
-
-// Fucnction to determine if the user selected the correct answer
-function isCorrect() {
-    return questions[currQuestionIndex].answers.answer;
 }
 
 
@@ -208,8 +224,5 @@ function display() {
     // Store the index into the usedQuestions array.
     usedQuestions.push(currQuestionIndex);
 }
-
-// Event Lister to determine if the user selected the correct answer
-
 
 display();
