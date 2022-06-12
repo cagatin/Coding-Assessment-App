@@ -143,22 +143,22 @@ let questions = [
         ]
     },
     {
-        question: "Given the following array, what would array.pop() return? array=[233, 54, 97,0]",
+        question: "What does array.pop() do?",
         answers: [
             {
-                text: "54",
+                text: "Returns and removes the first item in the array",
                 answer: false
             },
             {
-                text: "97",
+                text: "Returns but does not remove the first item in the array",
                 answer: false
             },
             {
-                text: "233",
+                text: "Returns but does not remove the last item in the array",
                 answer: false
             },
             {
-                text: "0",
+                text: "Returns and removes the last item in the array",
                 answer: true
             },
         ]
