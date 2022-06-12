@@ -87,9 +87,17 @@ header {
     border-color: var(--correctColor);
 }
 
+.correct-text {
+    color: var(--correctColor);
+}
+
 .incorrect {
     background-color: var(--incorrectColor);
     border-color: var(--incorrectColor);
+}
+
+.incorrect-text {
+    color: var(--incorrectColor);
 }
 
 .hidden {

@@ -4,6 +4,7 @@ let questionPara = document.querySelector('#question');
 let answersContainer = document.querySelector('#answers-container');
 let questionsContainer = document.querySelector('#question-container');
 let answerBtn = document.querySelectorAll('.answer-button');
+let timeLeftSpan = document.querySelector('#time-left')
 
 let time = 90;
 let currScore;
@@ -175,7 +176,6 @@ function displayAnswers(index) {
     for (let i = 0; i < answers.length; i++) {
         //contains boolean describing whether answer is true/false
         let answer = answers[i].answer;
-        console.log(answer);
 
         //create a button element
         let newBtn = document.createElement('button');
@@ -194,10 +194,14 @@ function displayAnswers(index) {
             let isCorrect = event.target.classList.contains('true');
             if (isCorrect) {
                 event.target.classList.add('correct');
+                resultSpan.textContent = 'Correct';
+                resultSpan.setAttribute('class', 'correct-text')
             } else {
                 event.target.classList.add('incorrect');
+                resultSpan.textContent = 'Incorrect';
+                resultSpan.setAttribute('class', 'incorrect-text');
             }
-        })
+        });
     }
 }
 
@@ -207,7 +211,7 @@ function displayQuestion(index) {
 }
 
 
-//Funciton that displays questions/answers onto the page
+// Funciton that displays questions/answers onto the page
 function display() {
     // Randomly generate an index from the questions array.
     currQuestionIndex = randomNumber();
@@ -224,5 +228,7 @@ function display() {
     // Store the index into the usedQuestions array.
     usedQuestions.push(currQuestionIndex);
 }
+
+
 
 display();
