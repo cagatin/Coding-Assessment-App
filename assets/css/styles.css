@@ -92,6 +92,7 @@ body {
     border-radius: 2px;
     width: 60px;
     font-family: var(--defaultFont);
+    font-weight: bold;
 }
 
 .answer-button {
@@ -104,7 +105,6 @@ body {
     border: 1px solid var(--borderColor);
     transition: all 0.2s;
     border-radius: 5px;
-
 }
 
 .answer-button:hover {

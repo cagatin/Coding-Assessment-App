@@ -15,11 +15,13 @@ let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
 let saveScoresBtn = document.querySelector('#save-score');
 let saveScoresContainer = document.querySelector('#save-score-container');
 let submitNameBtn = document.querySelector('#submit-name-button');
+let nameInput = document.querySelector('#nameInput');
 
 let time = 90;
 let playerScore = 0;
 let currQuestionIndex;
 let usedQuestions = new Set();
+let highScores = [];
 
 
 // Array containing question-answer pair objects.
@@ -328,11 +330,48 @@ answersContainer.addEventListener('click', (event) => {
 
 // save score button event listener that displays the form to save their score
 saveScoresBtn.addEventListener('click', () => {
+    if (playerScore == 0) {
+        alert('No score to submit');
+        return;
+    }
+
+    //hide the buttons
+    hideButtons();
+
+    // display the save score container
     saveScoresContainer.classList.remove('hidden');
 })
 
 
-//
+// event listener for the submit button when the user submits their score
+submitNameBtn.addEventListener('click', (event) => {
+    event.preventDefault();     //stop the form from submitting
+    // Retrieve the user input
+    let userName = nameInput.value;
+
+    //Object to store name-score pairs
+    let player = {
+        player: userName,
+        score: playerScore
+    }
+
+    highScores.push(player)
+
+    // Store the score in the local storage
+    localStorage.setItem('quizApp', JSON.stringify(highScores));
+
+    //display buttons
+    displayButtons();
+
+    //hide the save score container
+    saveScoresContainer.classList.add('hidden');
+
+    //tell the user that their score was saved
+    resultSpan.textContent = `Score of ${playerScore} saved for ${userName}!`;
+
+    //Reset the player score so user doesnt submit again
+    playerScore = 0;
+})
 
 // view high scores button
 // when the user clicks the button
