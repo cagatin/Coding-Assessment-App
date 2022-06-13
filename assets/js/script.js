@@ -282,6 +282,9 @@ startBtn.addEventListener('click', (event) => {
     //clear the results if a previous game was played
     resultSpan.textContent = '';
 
+    //reset the player score
+    playerScore = 0;
+
     //add a border to the main container
     mainContainer.style.border = mainBorderStyle;
 
@@ -325,6 +328,9 @@ answersContainer.addEventListener('click', (event) => {
 // when the user clicks the button...
 // then a prompt will open for the user to submit their name
 // the name is then saved to the localStorage
+saveScoresBtn.addEventListener('click', () => {
+    let userName = prompt('Please Enter Your Name');
+})
 
 
 // view high scores button
