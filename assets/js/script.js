@@ -11,7 +11,7 @@ let startBtn = document.querySelector('#start-btn');
 let variableStyles = getComputedStyle(document.body);
 let highScoresContainer = document.querySelectorAll('.high-scores-container');
 let highScoresBtn = document.querySelectorAll('.high-scores-button');
-
+let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
 
 let time = 90;
 let playerScore = 0;
@@ -203,7 +203,6 @@ function displayQuestion(index) {
     questionPara.textContent = questions[index].question;
 }
 
-
 // Funciton that displays questions/answers onto the page
 function display() {
     currQuestionIndex = randomNumber();         // Randomly generate an index from the questions array.
@@ -272,7 +271,6 @@ startBtn.addEventListener('click', (event) => {
     resultSpan.textContent = '';
 
     //add a border to the main container
-    let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
     mainContainer.style.border = mainBorderStyle;
 
     //display the quesitons-container
@@ -286,6 +284,7 @@ startBtn.addEventListener('click', (event) => {
 
 // endGame function used to end the game, display the final score, and resets the game board
 function endGame() {
+    resultSpan.style.color = 'white';
     // Tell the user their score
     resultSpan.textContent = `You Scored a ${playerScore} out of ${questions.length}!`;
 
@@ -300,6 +299,9 @@ function endGame() {
 
     // clear the used questions from the game
     usedQuestions.clear();
+
+    // remove the border from the main container
+    mainContainer.style.border = '';
 }
 
 

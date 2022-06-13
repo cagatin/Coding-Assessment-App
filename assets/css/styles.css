@@ -17,25 +17,16 @@ body {
     font-family: var(--defaultFont);
 }
 
-header {
+#header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 1%;
-}
-
-.high-scores-container {
-    margin-left: 2%;
-}
-
-.high-scores-container button {
-    font-family: var(--defaultFont);
-    outline: none;
-    font-weight: bold;
 }
 
 #time-container {
     margin-right: 2%;
+    font-size: 200%;
 }
 
 #result-container {
@@ -63,12 +54,11 @@ header {
     margin: 0 auto;
 }
 
-#start-btn {
+#game-start-container button {
     outline: none;
     font-family: var(--defaultFont);
     font-weight: bold;
     align-self: center;
-    width: 200%;
     border: 1px solid var(--borderColor);
     border-radius: 2px;
 }
