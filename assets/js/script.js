@@ -226,10 +226,10 @@ function clearDisplay() {
     }
 }
 
-// function which ends the game and displays high score
-function endGame() {
+// // function which ends the game and displays high score
+// function endGame() {
 
-}
+// }
 
 display();
 
@@ -241,18 +241,18 @@ answersContainer.addEventListener('click', (event) => {
         let isCorrect = event.target.classList.contains('true');
         if (isCorrect) {
             event.target.classList.add('correct');
-            resultSpan.textContent = 'Correct';
+            resultSpan.textContent = 'Correct!';
             resultSpan.setAttribute('class', 'correct-text')
         } else {
             event.target.classList.add('incorrect');
-            resultSpan.textContent = 'Incorrect';
+            resultSpan.textContent = 'Incorrect!';
             resultSpan.setAttribute('class', 'incorrect-text');
         }
-        if (usedQuestions.length < questions.length) {
-            clearDisplay();
-            display();
-        } else {
-            endGame();
-        }
+    }
+    if (usedQuestions.length < questions.length) {
+        clearDisplay();
+        display();
+    } else {
+        endGame();
     }
 });
