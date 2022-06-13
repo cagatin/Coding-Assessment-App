@@ -326,14 +326,13 @@ answersContainer.addEventListener('click', (event) => {
     continueGame();
 });
 
-// save score button event listener
-// when the user clicks the button...
-// then a prompt will open for the user to submit their name
-// the name is then saved to the localStorage
+// save score button event listener that displays the form to save their score
 saveScoresBtn.addEventListener('click', () => {
     saveScoresContainer.classList.remove('hidden');
 })
 
+
+//
 
 // view high scores button
 // when the user clicks the button
