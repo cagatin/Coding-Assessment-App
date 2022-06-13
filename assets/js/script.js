@@ -259,22 +259,18 @@ answersContainer.addEventListener('click', (event) => {
             resultSpan.setAttribute('class', 'incorrect-text'); //add a incorrect-text class to the results span
         }
     }
+    continueGame();
+});
 
-    // 
+// Continue function that continues the game
+function continueGame() {
     if (usedQuestions.size < questions.length) {
         clearDisplay();
         display();
     } else {
         endGame();
     }
-});
-
-
-// // Function which starts the game
-// function playGame() {
-
-// }
-
+}
 
 //start button event listener
 //when the player clicks the start button...
@@ -283,6 +279,8 @@ answersContainer.addEventListener('click', (event) => {
 //display the quesitons-container (remove hidden class) classList.remove('hidden')
 //display the answers-container
 startBtn.addEventListener('click', (event) => {
+    resultSpan.textContent = '';
+
     let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
 
     mainContainer.style.border = mainBorderStyle;
@@ -297,4 +295,12 @@ startBtn.addEventListener('click', (event) => {
 //endGame function
 //if the player goes through the entirety of the quiz...
 //hide the question and answers container
-//display the high scores contianer
+//display the score in the results container
+
+function endGame() {
+    resultSpan.textContent = `You Scored a ${playerScore} out of ${questions.length}!`;
+    clearDisplay();
+    gameStartContainer.classList.remove('hidden');
+    startBtn.classList.remove('hidden');
+    usedQuestions.clear();
+}
