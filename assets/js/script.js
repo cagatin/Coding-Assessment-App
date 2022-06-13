@@ -7,7 +7,7 @@ let answerBtn = document.querySelectorAll('.answer-button');
 let timeLeftSpan = document.querySelector('#time-left')
 
 let time = 90;
-let currScore;
+let playerScore = 0;
 let currQuestionIndex;
 let usedQuestions = new Set();
 
@@ -214,10 +214,6 @@ function display() {
 
     // Store the index into the usedQuestions array.
     usedQuestions.add(currQuestionIndex);
-
-    console.log(usedQuestions.size);
-    console.log(questions.length);
-    console.log(usedQuestions);
 }
 
 // function that clears the questions and answers from the main contianer
@@ -232,9 +228,9 @@ function clearDisplay() {
 }
 
 // // function which ends the game and displays high score
-// function endGame() {
-
-// }
+function endGame() {
+    console.log(playerScore);
+}
 
 display();
 
@@ -252,6 +248,7 @@ answersContainer.addEventListener('click', (event) => {
             event.target.classList.add('correct');              //add a correct class to the button
             resultSpan.textContent = 'Correct!';                //set the text of the result span to 'Correct'
             resultSpan.setAttribute('class', 'correct-text')    //add a correct-text class to the results span
+            playerScore += 1;
         }
         // Otherwise, if the button contains a 'false' class...
         else {
@@ -264,8 +261,7 @@ answersContainer.addEventListener('click', (event) => {
     if (usedQuestions.size < questions.length) {
         clearDisplay();
         display();
-        // } else {
-        //     endGame();
-        // }
-    };
+    } else {
+        endGame();
+    }
 });
