@@ -9,7 +9,7 @@ let timeLeftSpan = document.querySelector('#time-left')
 let time = 90;
 let currScore;
 let currQuestionIndex;
-let usedQuestions = [];
+let usedQuestions = new Set();
 
 
 // Array containing question-answer pair objects.
@@ -199,11 +199,12 @@ function displayQuestion(index) {
 
 // Funciton that displays questions/answers onto the page
 function display() {
+
     // Randomly generate an index from the questions array.
     currQuestionIndex = randomNumber();
 
     // If the question has already been used, select a new index.
-    if (usedQuestions.includes(currQuestionIndex)) {
+    while (usedQuestions.has(currQuestionIndex)) {
         currQuestionIndex = randomNumber();
     }
 
@@ -212,10 +213,11 @@ function display() {
     displayAnswers(currQuestionIndex);
 
     // Store the index into the usedQuestions array.
-    usedQuestions.push(currQuestionIndex);
+    usedQuestions.add(currQuestionIndex);
 
-    console.log(usedQuestions);
+    console.log(usedQuestions.size);
     console.log(questions.length);
+    console.log(usedQuestions);
 }
 
 // function that clears the questions and answers from the main contianer
@@ -259,10 +261,11 @@ answersContainer.addEventListener('click', (event) => {
         }
     }
 
-    if (usedQuestions.length < questions.length) {
+    if (usedQuestions.size < questions.length) {
         clearDisplay();
         display();
-    } else {
-        endGame();
-    }
+        // } else {
+        //     endGame();
+        // }
+    };
 });
