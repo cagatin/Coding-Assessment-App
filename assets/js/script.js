@@ -220,7 +220,10 @@ function display() {
 
 // function that clears the questions and answers from the main contianer
 function clearDisplay() {
+    // Clear the question. 
     questionPara.textContent = '';
+
+    // While there are still answer buttons in the container, remove them.
     while (answersContainer.firstChild) {
         answersContainer.removeChild(answersContainer.firstChild);
     }
@@ -237,18 +240,25 @@ display();
 answersContainer.addEventListener('click', (event) => {
     let element = event.target;
 
+    // If the element is a button
     if (element.matches('button')) {
+        // Check if the button is the correct answer (has a class of 'true');
         let isCorrect = event.target.classList.contains('true');
+
+        // If the button has a 'true' class...
         if (isCorrect) {
-            event.target.classList.add('correct');
-            resultSpan.textContent = 'Correct!';
-            resultSpan.setAttribute('class', 'correct-text')
-        } else {
-            event.target.classList.add('incorrect');
-            resultSpan.textContent = 'Incorrect!';
-            resultSpan.setAttribute('class', 'incorrect-text');
+            event.target.classList.add('correct');              //add a correct class to the button
+            resultSpan.textContent = 'Correct!';                //set the text of the result span to 'Correct'
+            resultSpan.setAttribute('class', 'correct-text')    //add a correct-text class to the results span
+        }
+        // Otherwise, if the button contains a 'false' class...
+        else {
+            event.target.classList.add('incorrect');            //add an incorrect class to the button
+            resultSpan.textContent = 'Incorrect!';              //set the text of the results span to 'Incorrect'
+            resultSpan.setAttribute('class', 'incorrect-text'); //add a incorrect-text class to the results span
         }
     }
+
     if (usedQuestions.length < questions.length) {
         clearDisplay();
         display();
