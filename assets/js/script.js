@@ -232,9 +232,7 @@ function endGame() {
     console.log(playerScore);
 }
 
-display();
-
-//event listener to determine if the user selected the correct answer.
+// event listener to determine if the user selected the correct answer.
 answersContainer.addEventListener('click', (event) => {
     let element = event.target;
 
@@ -265,3 +263,9 @@ answersContainer.addEventListener('click', (event) => {
         endGame();
     }
 });
+
+
+// Function which starts the game
+function playGame() {
+
+}

@@ -30,6 +30,7 @@ header {
 #high-scores-container button {
     font-family: var(--defaultFont);
     outline: none;
+    font-weight: bold;
 }
 
 #time-container {
@@ -52,6 +53,22 @@ header {
     padding: 5%;
     font-size: 200%;
     border: 2px solid var(--borderColor);
+}
+
+#game-start-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#start-btn {
+    outline: none;
+    font-family: var(--defaultFont);
+    font-weight: bold;
+    align-self: center;
+    width: 200%;
+    border: 1px solid var(--borderColor);
 }
 
 #question-container {
