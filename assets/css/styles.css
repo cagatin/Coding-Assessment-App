@@ -1,6 +1,6 @@
 :root {
     --defaultFont: 'Montserrat', sans-serif;
-    --borderColor: #9f86c0;
+    --borderColor: #fca311;
     --correctColor: #57cc99;
     --incorrectColor: #e63946;
     --mainBorder: 2px solid var(--borderColor);
@@ -12,7 +12,7 @@
 }
 
 body {
-    background-color: #023047;
+    background-color: #000000;
     color: white;
     font-family: var(--defaultFont);
 }
@@ -44,13 +44,14 @@ body {
     margin: 5%;
     padding: 5%;
     font-size: 200%;
-    /* border: var(--mainBorder); */
+    box-shadow: 0 1em 1.5em -0.5em var(--borderColor);
+    border-radius: 10px;
 }
 
 #game-start-container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     margin: 0 auto;
 }
 
@@ -61,6 +62,13 @@ body {
     align-self: center;
     border: 1px solid var(--borderColor);
     border-radius: 2px;
+    transition: all 0.2s;
+}
+
+#game-start-container button:hover {
+    border-color: var(--borderColor);
+    box-shadow: 0 1em 1em -1em var(--borderColor);
+    transform: translateY(-0.1em);
 }
 
 #question-container {
@@ -81,6 +89,8 @@ body {
     outline: none;
     border: 1px solid var(--borderColor);
     transition: all 0.2s;
+    border-radius: 5px;
+
 }
 
 .answer-button:hover {
