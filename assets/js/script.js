@@ -13,6 +13,8 @@ let highScoresContainer = document.querySelector('#high-scores-container');
 let highScoresBtn = document.querySelector('#hsButton');
 let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
 let saveScoresBtn = document.querySelector('#save-score');
+let saveScoresContainer = document.querySelector('#save-score-container');
+let submitNameBtn = document.querySelector('#submit-name-button');
 
 let time = 90;
 let playerScore = 0;
@@ -329,7 +331,7 @@ answersContainer.addEventListener('click', (event) => {
 // then a prompt will open for the user to submit their name
 // the name is then saved to the localStorage
 saveScoresBtn.addEventListener('click', () => {
-    let userName = prompt('Please Enter Your Name');
+    saveScoresContainer.classList.remove('hidden');
 })
 
 
