@@ -52,7 +52,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 0 auto;
 }
 
 #game-start-container button {
