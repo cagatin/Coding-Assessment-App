@@ -95,6 +95,12 @@ body {
     font-weight: bold;
 }
 
+#highscores {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 .answer-button {
     font-family: var(--defaultFont);
     font-weight: bold;

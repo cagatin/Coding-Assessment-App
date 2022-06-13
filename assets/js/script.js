@@ -376,3 +376,13 @@ submitNameBtn.addEventListener('click', (event) => {
 // view high scores button
 // when the user clicks the button
 // then the high scores div will display
+highScoresBtn.addEventListener('click', () => {
+    //function to create high scores list items
+    // displayHighScores()
+
+    if (highScoresContainer.classList.contains('hidden')) {
+        highScoresContainer.classList.remove('hidden');
+    } else {
+        highScoresContainer.classList.add('hidden');
+    };
+}) 
