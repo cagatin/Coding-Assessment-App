@@ -1,6 +1,6 @@
 :root {
     --defaultFont: 'Montserrat', sans-serif;
-    --borderColor: #fca311;
+    --borderColor: #ffc6ff;
     --correctColor: #57cc99;
     --incorrectColor: #e63946;
     --mainBorder: 2px solid var(--borderColor);
