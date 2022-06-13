@@ -10,8 +10,9 @@ let gameStartContainer = document.querySelector('#game-start-container');
 let startBtn = document.querySelector('#start-btn');
 let variableStyles = getComputedStyle(document.body);
 let highScoresContainer = document.querySelectorAll('.high-scores-container');
-let highScoresBtn = document.querySelectorAll('.high-scores-button');
+let highScoresBtn = document.querySelector('#hsButton');
 let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
+let saveScoresBtn = document.querySelector('#save-score');
 
 let time = 90;
 let playerScore = 0;
@@ -230,6 +231,69 @@ function clearDisplay() {
     }
 }
 
+// Function which hides the buttons in the game-start-container div
+function hideButtons() {
+    startBtn.classList.add('hidden');
+    highScoresBtn.classList.add('hidden');
+    saveScoresBtn.classList.add('hidden');
+}
+
+// Funciton which displays buttons
+function displayButtons() {
+    startBtn.classList.remove('hidden');
+    highScoresBtn.classList.remove('hidden');
+    saveScoresBtn.classList.remove('hidden');
+}
+
+// Function which continues the game
+function continueGame() {
+    if (usedQuestions.size < questions.length) {
+        clearDisplay();
+        display();
+    } else {
+        endGame();
+    }
+}
+
+// endGame function used to end the game, display the final score, and reset the game board
+function endGame() {
+    resultSpan.style.color = 'white';
+    // Tell the user their score
+    resultSpan.textContent = `You Scored a ${playerScore} out of ${questions.length}!`;
+
+    // clear the questions and answers div
+    clearDisplay();
+
+    // display buttons container again
+    gameStartContainer.classList.remove('hidden');
+
+    //display buttons in game-start-container
+    displayButtons();
+
+    // clear the used questions from the game
+    usedQuestions.clear();
+
+    // remove the border from the main container
+    mainContainer.style.border = '';
+}
+
+// Event listener for the start button. Starts the game
+startBtn.addEventListener('click', (event) => {
+    //clear the results if a previous game was played
+    resultSpan.textContent = '';
+
+    //add a border to the main container
+    mainContainer.style.border = mainBorderStyle;
+
+    //display the quesitons-container
+    gameStartContainer.classList.add('hidden');
+
+    //hide buttons in game-start-container
+    hideButtons();
+
+    display();
+});
+
 // event listener to determine if the user selected the correct answer.
 answersContainer.addEventListener('click', (event) => {
     let element = event.target;
@@ -256,54 +320,6 @@ answersContainer.addEventListener('click', (event) => {
     }
     continueGame();
 });
-
-// Continue function that continues the game
-function continueGame() {
-    if (usedQuestions.size < questions.length) {
-        clearDisplay();
-        display();
-    } else {
-        endGame();
-    }
-}
-startBtn.addEventListener('click', (event) => {
-    //clear the results if a previous game was played
-    resultSpan.textContent = '';
-
-    //add a border to the main container
-    mainContainer.style.border = mainBorderStyle;
-
-    //display the quesitons-container
-    gameStartContainer.classList.add('hidden');
-
-    //hide the start button
-    startBtn.classList.add('hidden');
-
-    display();
-});
-
-// endGame function used to end the game, display the final score, and resets the game board
-function endGame() {
-    resultSpan.style.color = 'white';
-    // Tell the user their score
-    resultSpan.textContent = `You Scored a ${playerScore} out of ${questions.length}!`;
-
-    // clear the questions and answers div
-    clearDisplay();
-
-    // display buttons container again
-    gameStartContainer.classList.remove('hidden');
-
-    // display the start button
-    startBtn.classList.remove('hidden');
-
-    // clear the used questions from the game
-    usedQuestions.clear();
-
-    // remove the border from the main container
-    mainContainer.style.border = '';
-}
-
 
 // save score button event listener
 // when the user clicks the button...
