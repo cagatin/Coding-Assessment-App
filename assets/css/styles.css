@@ -3,6 +3,7 @@
     --borderColor: #9f86c0;
     --correctColor: #57cc99;
     --incorrectColor: #e63946;
+    --mainBorder: 2px solid var(--borderColor);
 }
 
 * {
@@ -52,7 +53,7 @@ header {
     margin: 5%;
     padding: 5%;
     font-size: 200%;
-    border: 2px solid var(--borderColor);
+    /* border: var(--mainBorder); */
 }
 
 #game-start-container {
@@ -69,6 +70,7 @@ header {
     align-self: center;
     width: 200%;
     border: 1px solid var(--borderColor);
+    border-radius: 2px;
 }
 
 #question-container {

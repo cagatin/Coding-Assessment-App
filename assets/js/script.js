@@ -1,10 +1,14 @@
 // Creating references to variables within the document.
+let mainContainer = document.querySelector('#main-container');
 let resultSpan = document.querySelector('#result');
 let questionPara = document.querySelector('#question');
 let answersContainer = document.querySelector('#answers-container');
 let questionsContainer = document.querySelector('#question-container');
 let answerBtn = document.querySelectorAll('.answer-button');
-let timeLeftSpan = document.querySelector('#time-left')
+let timeLeftSpan = document.querySelector('#time-left');
+let gameStartContainer = document.querySelector('#game-start-container');
+let startBtn = document.querySelector('#start-btn');
+let variableStyles = getComputedStyle(document.body);
 
 let time = 90;
 let playerScore = 0;
@@ -256,6 +260,7 @@ answersContainer.addEventListener('click', (event) => {
         }
     }
 
+    // 
     if (usedQuestions.size < questions.length) {
         clearDisplay();
         display();
@@ -265,7 +270,31 @@ answersContainer.addEventListener('click', (event) => {
 });
 
 
-// Function which starts the game
-function playGame() {
+// // Function which starts the game
+// function playGame() {
 
-}
+// }
+
+
+//start button event listener
+//when the player clicks the start button...
+//add a border to the main container
+//make the gamestart container hidden (class="hidden")
+//display the quesitons-container (remove hidden class) classList.remove('hidden')
+//display the answers-container
+startBtn.addEventListener('click', (event) => {
+    let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
+
+    mainContainer.style.border = mainBorderStyle;
+    gameStartContainer.classList.add('hidden');
+    startBtn.classList.add('hidden');
+
+    display();
+});
+
+
+
+//endGame function
+//if the player goes through the entirety of the quiz...
+//hide the question and answers container
+//display the high scores contianer
