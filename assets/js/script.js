@@ -9,6 +9,9 @@ let timeLeftSpan = document.querySelector('#time-left');
 let gameStartContainer = document.querySelector('#game-start-container');
 let startBtn = document.querySelector('#start-btn');
 let variableStyles = getComputedStyle(document.body);
+let highScoresContainer = document.querySelectorAll('.high-scores-container');
+let highScoresBtn = document.querySelectorAll('.high-scores-button');
+
 
 let time = 90;
 let playerScore = 0;
@@ -203,9 +206,7 @@ function displayQuestion(index) {
 
 // Funciton that displays questions/answers onto the page
 function display() {
-
-    // Randomly generate an index from the questions array.
-    currQuestionIndex = randomNumber();
+    currQuestionIndex = randomNumber();         // Randomly generate an index from the questions array.
 
     // If the question has already been used, select a new index.
     while (usedQuestions.has(currQuestionIndex)) {
@@ -224,16 +225,10 @@ function display() {
 function clearDisplay() {
     // Clear the question. 
     questionPara.textContent = '';
-
     // While there are still answer buttons in the container, remove them.
     while (answersContainer.firstChild) {
         answersContainer.removeChild(answersContainer.firstChild);
     }
-}
-
-// // function which ends the game and displays high score
-function endGame() {
-    console.log(playerScore);
 }
 
 // event listener to determine if the user selected the correct answer.
@@ -252,6 +247,7 @@ answersContainer.addEventListener('click', (event) => {
             resultSpan.setAttribute('class', 'correct-text')    //add a correct-text class to the results span
             playerScore += 1;
         }
+
         // Otherwise, if the button contains a 'false' class...
         else {
             event.target.classList.add('incorrect');            //add an incorrect class to the button
@@ -271,36 +267,48 @@ function continueGame() {
         endGame();
     }
 }
-
-//start button event listener
-//when the player clicks the start button...
-//add a border to the main container
-//make the gamestart container hidden (class="hidden")
-//display the quesitons-container (remove hidden class) classList.remove('hidden')
-//display the answers-container
 startBtn.addEventListener('click', (event) => {
+    //clear the results if a previous game was played
     resultSpan.textContent = '';
 
+    //add a border to the main container
     let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
-
     mainContainer.style.border = mainBorderStyle;
+
+    //display the quesitons-container
     gameStartContainer.classList.add('hidden');
+
+    //hide the start button
     startBtn.classList.add('hidden');
 
     display();
 });
 
-
-
-//endGame function
-//if the player goes through the entirety of the quiz...
-//hide the question and answers container
-//display the score in the results container
-
+// endGame function used to end the game, display the final score, and resets the game board
 function endGame() {
+    // Tell the user their score
     resultSpan.textContent = `You Scored a ${playerScore} out of ${questions.length}!`;
+
+    // clear the questions and answers div
     clearDisplay();
+
+    // display buttons container again
     gameStartContainer.classList.remove('hidden');
+
+    // display the start button
     startBtn.classList.remove('hidden');
+
+    // clear the used questions from the game
     usedQuestions.clear();
 }
+
+
+// save score button event listener
+// when the user clicks the button...
+// then a prompt will open for the user to submit their name
+// the name is then saved to the localStorage
+
+
+// view high scores button
+// when the user clicks the button
+// then the high scores div will display

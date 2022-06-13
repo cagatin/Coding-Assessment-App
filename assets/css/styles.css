@@ -24,11 +24,11 @@ header {
     margin-top: 1%;
 }
 
-#high-scores-container {
+.high-scores-container {
     margin-left: 2%;
 }
 
-#high-scores-container button {
+.high-scores-container button {
     font-family: var(--defaultFont);
     outline: none;
     font-weight: bold;
