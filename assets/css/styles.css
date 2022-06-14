@@ -73,7 +73,6 @@ body {
     border: 1px solid var(--borderColor);
     border-radius: 2px;
     transition: all 0.2s;
-    background-color: #ffccd5;
 }
 
 #game-start-container button:hover {
@@ -104,7 +103,6 @@ body {
     width: 60px;
     font-family: var(--defaultFont);
     font-weight: bold;
-    background-color: #ffccd5;
 }
 
 #highscores {
@@ -123,7 +121,6 @@ body {
     border: 1px solid var(--borderColor);
     transition: all 0.2s;
     border-radius: 5px;
-    background-color: #ffccd5;
 }
 
 .correct {
