@@ -216,6 +216,7 @@ function startTime() {
         time--;
         if (time <= 0) {
             clearInterval(timer);
+            endGame();
         }
         timeLeftSpan.textContent = `Time Left: ${time}`;
     }, 1000);
@@ -295,6 +296,7 @@ function clearHighScores() {
 
 // Function which continues the game
 function continueGame() {
+    resultSpan.textContent = '';
     if (usedQuestions.size < questions.length) {
         clearDisplay();
         display();
