@@ -1,5 +1,5 @@
 # Coding-Assessment-App
-![](assets/images/fullApp.PNG)
+![](assets/images/fullApp.PNG) <br/>
 Welcome to my [Quiz App](https://cagatin.github.io/Coding-Assessment-App/)!
 
 ## What does this do?
