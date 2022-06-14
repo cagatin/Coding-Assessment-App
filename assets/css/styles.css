@@ -163,6 +163,9 @@ body {
     #game-start-container button {
         width: 100%;
         margin: 2%;
+    }
+
+    button {
         color: black;
     }
 }
