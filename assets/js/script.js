@@ -283,6 +283,11 @@ function endGame() {
 
 // Event listener for the start button. Starts the game
 startBtn.addEventListener('click', (event) => {
+    //if the high scores tab is open, close it
+    if (!highScoresContainer.classList.contains('hidden')) {
+        highScoresContainer.classList.add('hidden');
+    }
+
     //clear the results if a previous game was played
     resultSpan.textContent = '';
 
@@ -325,7 +330,7 @@ answersContainer.addEventListener('click', (event) => {
             resultSpan.setAttribute('class', 'incorrect-text'); //add a incorrect-text class to the results span
         }
     }
-    continueGame();
+    setTimeout(continueGame, 1000);
 });
 
 // save score button event listener that displays the form to save their score
