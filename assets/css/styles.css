@@ -169,4 +169,8 @@ body {
     .answer-button {
         color: black;
     }
+
+    .answer-button:hover {
+        transform: translateY(-0.1em);
+    }
 }
