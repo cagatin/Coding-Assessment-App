@@ -268,6 +268,11 @@ function displayHighScores() {
     //Retrive the scores from the local storage
     let savedScores = JSON.parse(localStorage.getItem('quizApp'));
 
+    if (!savedScores) {
+        alert("No saved high scores");
+        return;
+    }
+
     for (let i = 0; i < savedScores.length; i++) {
         let newLi = document.createElement('li');
         let player = savedScores[i].player;
