@@ -179,6 +179,69 @@ let questions = [
             },
         ]
     },
+    {
+        question: "What is a Promise Object?",
+        answers: [
+            {
+                text: "JS Object that stores a variable",
+                answer: false
+            },
+            {
+                text: "JS Object which represents the completion or failure of an async operation",
+                answer: true
+            },
+            {
+                text: "JS Object which represents higher order functions",
+                answer: false
+            },
+            {
+                text: "JS Object which represents the completion of a function",
+                answer: false
+            },
+        ]
+    },
+    {
+        question: "What is the time complexity of a binary search algorithm?",
+        answers: [
+            {
+                text: "exponential",
+                answer: false
+            },
+            {
+                text: "linear",
+                answer: false
+            },
+            {
+                text: "logarithmic",
+                answer: true
+            },
+            {
+                text: "constant",
+                answer: false
+            },
+        ]
+    },
+    {
+        question: "What does the .next method of a linked list reference?",
+        answers: [
+            {
+                text: "the value stored within the list object",
+                answer: false
+            },
+            {
+                text: "The reference to the next link",
+                answer: true
+            },
+            {
+                text: "An array containing index-object values",
+                answer: false
+            },
+            {
+                text: "The head of the linked list",
+                answer: false
+            },
+        ]
+    },
 ]
 
 // Function to generate random index for selection in questions array.
