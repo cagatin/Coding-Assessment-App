@@ -113,7 +113,11 @@ let questions = [
         ]
     },
     {
+<<<<<<< HEAD
+        question: "How are elements indexed within an array",
+=======
         question: "How are elements indexed within an array?",
+>>>>>>> a9e3d6f6313f627559f4ce90dde641bdc8773d70
         answers: [
             {
                 text: "One Indexed",
