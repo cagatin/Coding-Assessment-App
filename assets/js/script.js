@@ -16,6 +16,7 @@ let saveScoresBtn = document.querySelector('#save-score');
 let saveScoresContainer = document.querySelector('#save-score-container');
 let submitNameBtn = document.querySelector('#submit-name-button');
 let nameInput = document.querySelector('#nameInput');
+let highscoresList = document.querySelector('#highscores');
 
 let time = 90;
 let playerScore = 0;
@@ -208,6 +209,18 @@ function displayQuestion(index) {
     questionPara.textContent = questions[index].question;
 }
 
+// Function for the timer logic
+function startTime() {
+    timeLeftSpan.textContent = `Time Left: ${time}`;
+    let timer = setInterval(() => {
+        time--;
+        if (time <= 0) {
+            clearInterval(timer);
+        }
+        timeLeftSpan.textContent = `Time Left: ${time}`;
+    }, 1000);
+}
+
 // Funciton that displays questions/answers onto the page
 function display() {
     currQuestionIndex = randomNumber();         // Randomly generate an index from the questions array.
@@ -249,6 +262,37 @@ function displayButtons() {
     saveScoresBtn.classList.remove('hidden');
 }
 
+// Function to display high scores as list items;
+function displayHighScores() {
+    //Retrive the scores from the local storage
+    let savedScores = JSON.parse(localStorage.getItem('quizApp'));
+
+    for (let i = 0; i < savedScores.length; i++) {
+        let newLi = document.createElement('li');
+        let player = savedScores[i].player;
+        let score = savedScores[i].score;
+        newLi.textContent = `${player} - ${score}`;
+        highscoresList.appendChild(newLi);
+    }
+}
+
+//function to display time span
+function hideTime() {
+    timeLeftSpan.setAttribute('class', 'hidden');
+}
+
+//function to display time span
+function displayTime() {
+    timeLeftSpan.classList.remove('hidden');
+}
+
+// Function to clear high scores
+function clearHighScores() {
+    while (highscoresList.firstChild) {
+        highscoresList.removeChild(highscoresList.firstChild);
+    }
+}
+
 // Function which continues the game
 function continueGame() {
     if (usedQuestions.size < questions.length) {
@@ -277,8 +321,17 @@ function endGame() {
     // clear the used questions from the game
     usedQuestions.clear();
 
+    // Hide the time left div
+    hideTime();
+
     // remove the border from the main container
     mainContainer.style.border = '';
+}
+
+// Function which intializes the local storage
+function initScores() {
+    let scores = JSON.parse(localStorage.getItem('quizApp'));
+    highScores = scores;
 }
 
 // Event listener for the start button. Starts the game
@@ -286,6 +339,7 @@ startBtn.addEventListener('click', (event) => {
     //if the high scores tab is open, close it
     if (!highScoresContainer.classList.contains('hidden')) {
         highScoresContainer.classList.add('hidden');
+        clearHighScores();
     }
 
     //clear the results if a previous game was played
@@ -304,6 +358,8 @@ startBtn.addEventListener('click', (event) => {
     hideButtons();
 
     display();
+
+    startTime();
 });
 
 // event listener to determine if the user selected the correct answer.
@@ -328,6 +384,7 @@ answersContainer.addEventListener('click', (event) => {
             event.target.classList.add('incorrect');            //add an incorrect class to the button
             resultSpan.textContent = 'Incorrect!';              //set the text of the results span to 'Incorrect'
             resultSpan.setAttribute('class', 'incorrect-text'); //add a incorrect-text class to the results span
+            time -= 10;
         }
     }
     setTimeout(continueGame, 1000);
@@ -378,20 +435,18 @@ submitNameBtn.addEventListener('click', (event) => {
     playerScore = 0;
 })
 
-// view high scores button
-// when the user clicks the button
-// then the high scores div will display
+// Toggle the high scores contianer
 highScoresBtn.addEventListener('click', () => {
     //function to create high scores list items
-    // displayHighScores()
+    displayHighScores()
 
     if (highScoresContainer.classList.contains('hidden')) {
         highScoresContainer.classList.remove('hidden');
     } else {
         highScoresContainer.classList.add('hidden');
+        //clear the high scores container when hidden
+        clearHighScores();
     };
 })
 
-
-//test
-//test2
+initScores();
