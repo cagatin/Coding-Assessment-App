@@ -1,8 +1,9 @@
 :root {
     --defaultFont: 'Montserrat', sans-serif;
-    --borderColor: #9f86c0;
+    --borderColor: #ffc6ff;
     --correctColor: #57cc99;
     --incorrectColor: #e63946;
+    --mainBorder: 2px solid var(--borderColor);
 }
 
 * {
@@ -11,29 +12,21 @@
 }
 
 body {
-    background-color: #023047;
+    background-color: #000000;
     color: white;
     font-family: var(--defaultFont);
 }
 
-header {
+#header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 1%;
-}
-
-#high-scores-container {
-    margin-left: 2%;
-}
-
-#high-scores-container button {
-    font-family: var(--defaultFont);
-    outline: none;
 }
 
 #time-container {
     margin-right: 2%;
+    font-size: 200%;
 }
 
 #result-container {
@@ -51,7 +44,32 @@ header {
     margin: 5%;
     padding: 5%;
     font-size: 200%;
-    border: 2px solid var(--borderColor);
+    box-shadow: 0 0.5em 2em -0.8em var(--borderColor);
+    border-radius: 10px;
+}
+
+#game-start-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#game-start-container button {
+    font-size: 0.7em;
+    outline: none;
+    font-family: var(--defaultFont);
+    font-weight: bold;
+    align-self: center;
+    border: 1px solid var(--borderColor);
+    border-radius: 2px;
+    transition: all 0.2s;
+    background-color: #dee2ff;
+}
+
+#game-start-container button:hover {
+    border-color: var(--borderColor);
+    box-shadow: 0 1em 1em -1em var(--borderColor);
+    transform: translateY(-0.1em);
 }
 
 #question-container {
@@ -63,6 +81,27 @@ header {
     flex-direction: column;
 }
 
+#save-score-container form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#save-score-container button {
+    outline: none;
+    border: 1px solid var(--borderColor);
+    border-radius: 2px;
+    width: 60px;
+    font-family: var(--defaultFont);
+    font-weight: bold;
+}
+
+#highscores {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
 .answer-button {
     font-family: var(--defaultFont);
     font-weight: bold;
@@ -72,6 +111,7 @@ header {
     outline: none;
     border: 1px solid var(--borderColor);
     transition: all 0.2s;
+    border-radius: 5px;
 }
 
 .answer-button:hover {
@@ -79,7 +119,6 @@ header {
     border-width: 2px;
     box-shadow: 0 1em 1em -1em var(--borderColor);
     transform: translateY(-0.4em);
-    background-color: #e3d5ca;
 }
 
 .correct {
@@ -87,9 +126,17 @@ header {
     border-color: var(--correctColor);
 }
 
+.correct-text {
+    color: var(--correctColor);
+}
+
 .incorrect {
     background-color: var(--incorrectColor);
     border-color: var(--incorrectColor);
+}
+
+.incorrect-text {
+    color: var(--incorrectColor);
 }
 
 .hidden {

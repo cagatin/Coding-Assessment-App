@@ -13,25 +13,43 @@
 
 <body>
     <!-- Header containing the high scores, result of the question, and time left -->
-    <header>
-        <div id="high-scores-container">
-            <button class="hsButton">View High Scores</button>
-        </div>
+    <div id="header">
         <div id="time-container">
-            <span class="time-left">Time Left:</span>
+            <span id="time-left">Time Left:</span>
         </div>
-    </header>
+    </div>
 
 
     <main>
         <div id="result-container">
-            <span id="result">Placeholder Result</span>
+            <span id="result"></span>
         </div>
         <div id="main-container">
+            <div id="game-start-container">
+                <button id="start-btn">Start Quiz</button>
+                <button id="hsButton">View High Scores</button>
+                <button id="save-score">Save Score</button>
+            </div>
             <div id="question-container">
                 <p id="question"></p>
             </div>
             <div id="answers-container">
+            </div>
+            <div id="save-score-container" class="hidden">
+                <form>
+                    <fieldset>
+                        <legend>Enter Your Name</legend>
+                        <input type="text" id="nameInput">
+                        <button id="submit-name-button">Submit</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div id="high-scores-container" class="hidden">
+                <ol id="highscores">
+                    <li>Test 1</li>
+                    <li>Test 2</li>
+                    <li>Test 3</li>
+                </ol>
             </div>
         </div>
     </main>
