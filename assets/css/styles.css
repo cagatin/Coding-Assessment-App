@@ -162,6 +162,10 @@ body {
     .answer-button {
         color: black;
     }
+
+    #submit-name-button {
+        color: black;
+    }
 }
 
 @media screen and (min-width: 500px) {
