@@ -104,6 +104,7 @@ body {
     width: 60px;
     font-family: var(--defaultFont);
     font-weight: bold;
+    background-color: #ffccd5;
 }
 
 #highscores {
