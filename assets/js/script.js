@@ -285,7 +285,7 @@ function startTime() {
         time--;
 
         //If the time left reaches 0, end the game
-        if (time === 0) {
+        if (time == 0) {
             clearInterval(timer);
             endGame();
         }
@@ -457,6 +457,7 @@ startBtn.addEventListener('click', (event) => {
     display();
 
     startTime();
+    displayTime();
 });
 
 // event listener to determine if the user selected the correct answer.
