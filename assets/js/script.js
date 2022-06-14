@@ -1,33 +1,36 @@
-// Creating references to variables within the document.
+// Creating references to Container elements.
 let mainContainer = document.querySelector('#main-container');
-let resultSpan = document.querySelector('#result');
-let questionPara = document.querySelector('#question');
 let answersContainer = document.querySelector('#answers-container');
 let questionsContainer = document.querySelector('#question-container');
-let answerBtn = document.querySelectorAll('.answer-button');
-let timeLeftSpan = document.querySelector('#time-left');
 let gameStartContainer = document.querySelector('#game-start-container');
-let startBtn = document.querySelector('#start-btn');
-let variableStyles = getComputedStyle(document.body);
 let highScoresContainer = document.querySelector('#high-scores-container');
-let highScoresBtn = document.querySelector('#hsButton');
-let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
-let saveScoresBtn = document.querySelector('#save-score');
 let saveScoresContainer = document.querySelector('#save-score-container');
+
+// Creating references to buttons
+let answerBtn = document.querySelectorAll('.answer-button');
+let startBtn = document.querySelector('#start-btn');
 let submitNameBtn = document.querySelector('#submit-name-button');
+let highScoresBtn = document.querySelector('#hsButton');
+let saveScoresBtn = document.querySelector('#save-score');
+
+// Creating references to necessary elements
+let resultSpan = document.querySelector('#result');
+let questionPara = document.querySelector('#question');
+let timeLeftSpan = document.querySelector('#time-left');
+let variableStyles = getComputedStyle(document.body);
+let mainBorderStyle = variableStyles.getPropertyValue('--mainBorder');
 let nameInput = document.querySelector('#nameInput');
 let highscoresList = document.querySelector('#highscores');
 
+// Variables used to play the game.
 let time = 90;
 let playerScore = 0;
-let currQuestionIndex;
-let usedQuestions = new Set();
-let highScores = [];
+let currQuestionIndex;              //tracks the current question being displayed
+let usedQuestions = new Set();      //tracks which questions were used
+let highScores = [];                //stores high scores of players
 
 
 // Array containing question-answer pair objects.
-// questions.question --> returns text 
-// questions.answers[index] --> Array of len
 let questions = [
     {
         question: "What does the Array.slice() method do?",
@@ -211,13 +214,20 @@ function displayQuestion(index) {
 
 // Function for the timer logic
 function startTime() {
+    //Initialize the timeLeft span
     timeLeftSpan.textContent = `Time Left: ${time}`;
+
+    //Create a timer
     let timer = setInterval(() => {
         time--;
+
+        //If the time left reaches 0, end the game
         if (time <= 0) {
             clearInterval(timer);
             endGame();
         }
+
+        //Display the time onto the timeLeftSpan
         timeLeftSpan.textContent = `Time Left: ${time}`;
     }, 1000);
 }
@@ -243,6 +253,7 @@ function display() {
 function clearDisplay() {
     // Clear the question. 
     questionPara.textContent = '';
+
     // While there are still answer buttons in the container, remove them.
     while (answersContainer.firstChild) {
         answersContainer.removeChild(answersContainer.firstChild);
@@ -268,16 +279,27 @@ function displayHighScores() {
     //Retrive the scores from the local storage
     let savedScores = JSON.parse(localStorage.getItem('quizApp'));
 
+    //If no saved scores exist, alert the user and return.
     if (!savedScores) {
         alert("No saved high scores");
         return;
     }
 
+    //Dynamically create list items 
     for (let i = 0; i < savedScores.length; i++) {
+        //create a new li element
         let newLi = document.createElement('li');
+
+        //retrieve the name of the player
         let player = savedScores[i].player;
+
+        //retrieve the score of the player
         let score = savedScores[i].score;
+
+        //add the name and score onto the li
         newLi.textContent = `${player} - ${score}`;
+
+        //append the li onto the high schores ol
         highscoresList.appendChild(newLi);
     }
 }
@@ -301,11 +323,16 @@ function clearHighScores() {
 
 // Function which continues the game
 function continueGame() {
+    //Clear the results span prior to displaying the next question
     resultSpan.textContent = '';
+
+    //if there are still unused questions, keep playing
     if (usedQuestions.size < questions.length) {
         clearDisplay();
         display();
-    } else {
+    }
+    //otherwise, end the game
+    else {
         endGame();
     }
 }

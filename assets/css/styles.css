@@ -163,9 +163,10 @@ body {
     #game-start-container button {
         width: 100%;
         margin: 2%;
+        color: black
     }
 
-    button {
+    .answer-button {
         color: black;
     }
 }

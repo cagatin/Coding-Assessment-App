@@ -21,20 +21,26 @@
 
 
     <main>
+        <!-- Div which contains the result of the current question -->
         <div id="result-container">
             <span id="result"></span>
         </div>
+        <!-- Main container -->
         <div id="main-container">
+            <!-- Container that stores the game start buttons -->
             <div id="game-start-container">
                 <button id="start-btn">Start Quiz</button>
                 <button id="hsButton">High Scores</button>
                 <button id="save-score">Save Score</button>
             </div>
+            <!-- Container which stores the question -->
             <div id="question-container">
                 <p id="question"></p>
             </div>
+            <!-- Container that stores the possible answers -->
             <div id="answers-container">
             </div>
+            <!-- Container used to save the user's score -->
             <div id="save-score-container" class="hidden">
                 <form>
                     <fieldset>
@@ -44,6 +50,7 @@
                     </fieldset>
                 </form>
             </div>
+            <!-- Container used to display high scores -->
             <div id="high-scores-container" class="hidden">
                 <ol id="highscores">
                 </ol>
