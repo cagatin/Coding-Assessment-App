@@ -445,6 +445,9 @@ startBtn.addEventListener('click', (event) => {
     //reset the player score
     playerScore = 0;
 
+    //Reset time
+    time = 90;
+
     //add a border to the main container
     mainContainer.style.border = mainBorderStyle;
 
