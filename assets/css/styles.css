@@ -55,6 +55,7 @@ body {
 }
 
 #game-start-container button {
+    font-size: 0.7em;
     outline: none;
     font-family: var(--defaultFont);
     font-weight: bold;
