@@ -285,7 +285,7 @@ function startTime() {
         time--;
 
         //If the time left reaches 0, end the game
-        if (time <= 0) {
+        if (time === 0) {
             clearInterval(timer);
             endGame();
         }
