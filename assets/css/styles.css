@@ -123,13 +123,6 @@ body {
     border-radius: 5px;
 }
 
-.answer-button:hover {
-    border-color: var(--borderColor);
-    border-width: 2px;
-    box-shadow: 0 1em 1em -1em var(--borderColor);
-    transform: translateY(-0.4em);
-}
-
 .correct {
     background-color: var(--correctColor);
     border-color: var(--correctColor);
@@ -169,8 +162,13 @@ body {
     .answer-button {
         color: black;
     }
+}
 
+@media screen and (min-width: 500px) {
     .answer-button:hover {
-        transform: translateY(-0.1em);
+        border-color: var(--borderColor);
+        border-width: 2px;
+        box-shadow: 0 1em 1em -1em var(--borderColor);
+        transform: translateY(-0.4em);
     }
 }
