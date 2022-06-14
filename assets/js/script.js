@@ -75,10 +75,10 @@ let questions = [
         ]
     },
     {
-        question: "What does it mean for JavaScript to be a synchronous language?",
+        question: "What does it mean for JavaScript to be a single threaded language?",
         answers: [
             {
-                text: "Javascript runs on a certain time interval",
+                text: "Javascript runs on a single time interval",
                 answer: false
             },
             {
@@ -86,11 +86,11 @@ let questions = [
                 answer: false,
             },
             {
-                text: "Javascript code runs from top to bottom, one line at a time",
+                text: "Javascript code runs one one call stack and one memory heap",
                 answer: true
             },
             {
-                text: "Javascript must synch to a data base before running code",
+                text: "Javascript code runs on multiple call stacks, but one memory heap",
                 answer: false
             },
         ]
