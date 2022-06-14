@@ -151,3 +151,17 @@ body {
 .hidden {
     display: none;
 }
+
+/* Media Query for phones */
+@media screen and (max-width: 500px) {
+    #game-start-contianer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    #game-start-container button {
+        width: 100%;
+        margin: 2%;
+    }
+}
