@@ -501,9 +501,8 @@ saveScoresBtn.addEventListener('click', () => {
     saveScoresContainer.classList.remove('hidden');
 })
 
-
-// event listener for the submit button when the user submits their score
-submitNameBtn.addEventListener('click', (event) => {
+//Function to handle submitting user score
+function handleSubmit(event) {
     event.preventDefault();     //stop the form from submitting
     // Retrieve the user input
     let userName = nameInput.value;
@@ -530,7 +529,12 @@ submitNameBtn.addEventListener('click', (event) => {
 
     //Reset the player score so user doesnt submit again
     playerScore = 0;
-})
+}
+
+// event listener for the submit button when the user submits their score (browser)
+submitNameBtn.addEventListener('click', handleSubmit)
+submitNameBtn.addEventListener('touchstart', handleSubmit);
+
 
 // Toggle the high scores contianer
 highScoresBtn.addEventListener('click', () => {
